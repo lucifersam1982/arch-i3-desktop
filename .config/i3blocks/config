@@ -1,0 +1,16 @@
+[disk]
+command=echo "Disk: $(df -h / | tail -1 | awk '{print $4}')"
+interval=30
+
+[public ip]
+command=echo "Public IP:$(curl ifconfig.co)"
+interval=once
+
+[ip]
+command=hostname -i | awk '{ print "IP:" $1 }'
+interval=5
+
+# Update time every 5 seconds
+[time]
+command=date "+%Y-%m-%d %H:%M" 
+interval=5
